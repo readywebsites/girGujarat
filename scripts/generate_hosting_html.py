@@ -1,0 +1,969 @@
+import os
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel First Holidays | Discover Gujarat - Dwarka, Somnath &amp; Sasan Gir Tour</title>
+  <meta name="description" content="Explore Gujarat with Travel First Holidays. 4 Days / 3 Nights signature tour to Dwarka, Somnath, and Sasan Gir. Comfortable AC luxury bus travel with hotel stays, meals, and safari included. Starting at ₹9,999/-.">
+
+  <!-- CSS Design System & Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. PRODUCTION SITE HEADER (Responsive Navbar)
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#sectionHero" class="brand-logo-link" aria-label="Travel First Holidays Home">
+        <img src="assets/svg/brand-logo.svg" alt="TRAVEL FIRST HOLIDAYS" class="brand-logo-img">
+      </a>
+
+      <!-- Desktop & Tablet Navigation Menu -->
+      <nav aria-label="Main Navigation">
+        <ul class="header-nav">
+          <li><a href="#sectionHero" class="nav-link active">Home</a></li>
+          <li><a href="#sectionPackage" class="nav-link">Tour Packages</a></li>
+          <li><a href="#sectionDestinations" class="nav-link">Destinations</a></li>
+          <li><a href="#sectionWhyUs" class="nav-link">About Us</a></li>
+          <li><a href="#sectionMoments" class="nav-link">Gallery</a></li>
+          <li><a href="#sectionFooter" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://wa.me/919876543210?text=Hello%20Travel%20First%20Holidays!%20I%20am%20interested%20in%20the%20Gujarat%20Tour%20Package." class="btn-header-wa" target="_blank" rel="noopener">
+          <img src="assets/svg/icon-whatsapp.svg" alt="WhatsApp" width="18" height="18">
+          <span>Enquire on WhatsApp</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle trigger-booking-modal" aria-label="Open Inquiry Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main" id="main-content">
+
+    <!-- ==========================================================================
+         2. HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="sectionHero">
+      <img src="assets/crops/hero_montage.png" alt="Majestic Asiatic Lion and Golden Temple at Sunset" class="hero-bg-media" onerror="this.src='assets/images/hero_lion_retina.jpg'">
+      <div class="hero-overlay"></div>
+
+      <!-- Route Pin Float Badge (Desktop/Tablet) -->
+      <div class="hero-route-badge">
+        <span style="font-family: var(--font-heading); font-style: italic; font-size: 13.5px; color: var(--gold-300);">Dwarka • Somnath • Sasan Gir</span>
+        <div style="font-size: 11px; font-weight: 700; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 2px;">
+          <span style="color:#D4AF37;">📍 Dwarka</span>
+          <span style="color:#94A3B8;">→</span>
+          <span style="color:#D4AF37;">📍 Somnath</span>
+          <span style="color:#94A3B8;">→</span>
+          <span style="color:#F59E0B;">🦁 Sasan Gir</span>
+        </div>
+      </div>
+
+      <div class="container hero-content">
+        <span class="hero-kicker">EXPLORE • PRAY • DISCOVER • TOGETHER</span>
+        <h1 class="hero-title">Discover Gujarat.</h1>
+        <span class="hero-title-italic">Experience Something Extraordinary.</span>
+        <p class="hero-subtitle">
+          From sacred temples to wild forests and coastal beauty — create memories that last a lifetime on our signature curated group tour.
+        </p>
+
+        <!-- Feature Pills Row -->
+        <div class="hero-pills">
+          <div class="hero-pill-item">
+            <img src="assets/svg/icon-temple.svg" alt="Temples">
+            <span>Sacred Temples</span>
+          </div>
+          <div class="hero-pill-item">
+            <img src="assets/svg/icon-lion.svg" alt="Wildlife">
+            <span>Wildlife Adventures</span>
+          </div>
+          <div class="hero-pill-item">
+            <img src="assets/svg/icon-heart.svg" alt="Holidays">
+            <span>Memorable Holidays</span>
+          </div>
+        </div>
+
+        <!-- Dual Action Buttons -->
+        <div class="hero-actions">
+          <button class="btn-hero-primary trigger-booking-modal" aria-label="Explore Tour Packages">
+            <span>Explore Tour Packages</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-hero-secondary trigger-booking-modal" aria-label="Plan Your Journey">
+            <span>Plan Your Journey</span>
+          </button>
+        </div>
+
+        <!-- Floating Inclusions Strip -->
+        <div class="hero-inclusions-strip" role="list">
+          <div class="strip-item" role="listitem">
+            <div class="strip-icon"><img src="assets/svg/icon-actravel.svg" alt="Bus"></div>
+            <span class="strip-text">Comfortable AC Travel</span>
+          </div>
+          <div class="strip-item" role="listitem">
+            <div class="strip-icon"><img src="assets/svg/icon-hotel.svg" alt="Hotel"></div>
+            <span class="strip-text">3 Nights Hotel Stay</span>
+          </div>
+          <div class="strip-item" role="listitem">
+            <div class="strip-icon"><img src="assets/svg/icon-meal.svg" alt="Food"></div>
+            <span class="strip-text">Breakfast + Dinner</span>
+          </div>
+          <div class="strip-item" role="listitem">
+            <div class="strip-icon"><img src="assets/svg/icon-sightseeing.svg" alt="Sightseeing"></div>
+            <span class="strip-text">All Sightseeing Included</span>
+          </div>
+          <div class="strip-item" role="listitem">
+            <div class="strip-icon"><img src="assets/svg/icon-safari.svg" alt="Safari"></div>
+            <span class="strip-text">Complimentary Safari Ticket</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. FEATURED TOUR PACKAGE CARD (Current Signature Group Bus Tour)
+         ========================================================================== -->
+    <section class="featured-section" id="sectionPackage">
+      <div class="container">
+        <div class="featured-package-card">
+          <div class="featured-left">
+            <span class="package-kicker">FEATURED TOUR PACKAGE</span>
+            <h2 class="package-title">Dwarka – Somnath – Sasan Gir</h2>
+            
+            <div class="package-badge-tag">
+              <span>🚌 Group AC Luxury Coach Tour • Private Cab Upgrades Available</span>
+            </div>
+
+            <p class="package-desc">
+              A perfect blend of spirituality, wildlife and coastal beauty — explore the best of Gujarat with comfortable AC pushback group travel, 3 nights hotel accommodation, pure vegetarian meals, and memorable experiences.
+            </p>
+
+            <!-- 6 Inclusions Icons Row -->
+            <div class="package-inclusions-grid">
+              <div class="inclusion-badge">
+                <div class="inclusion-circle"><img src="assets/svg/icon-pickup.svg" alt="Pickup"></div>
+                <span class="inclusion-label">Pickup &amp; Drop<br><small style="color:#64748B;">Ahmedabad</small></span>
+              </div>
+              <div class="inclusion-badge">
+                <div class="inclusion-circle"><img src="assets/svg/icon-actravel.svg" alt="AC Travel"></div>
+                <span class="inclusion-label">Comfortable<br><small style="color:#64748B;">AC Travel</small></span>
+              </div>
+              <div class="inclusion-badge">
+                <div class="inclusion-circle"><img src="assets/svg/icon-hotel.svg" alt="Hotel"></div>
+                <span class="inclusion-label">Hotel Stay<br><small style="color:#64748B;">3 Nights</small></span>
+              </div>
+              <div class="inclusion-badge">
+                <div class="inclusion-circle"><img src="assets/svg/icon-meal.svg" alt="Meals"></div>
+                <span class="inclusion-label">Breakfast<br><small style="color:#64748B;">+ Dinner</small></span>
+              </div>
+              <div class="inclusion-badge">
+                <div class="inclusion-circle"><img src="assets/svg/icon-sightseeing.svg" alt="Sightseeing"></div>
+                <span class="inclusion-label">All Sightseeing<br><small style="color:#64748B;">Included</small></span>
+              </div>
+              <div class="inclusion-badge">
+                <div class="inclusion-circle"><img src="assets/svg/icon-safari.svg" alt="Safari"></div>
+                <span class="inclusion-label">Complimentary<br><small style="color:#64748B;">Safari Ticket</small></span>
+              </div>
+            </div>
+
+            <div class="featured-actions">
+              <button class="btn-book-pack trigger-booking-modal">
+                <span>Book This Package</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <button class="btn-view-itin" onclick="openDayDetailModal(1)">
+                <span>View Full Itinerary</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Featured Right Visual with Price Burst Badge -->
+          <div class="featured-right">
+            <img src="assets/crops/package_vehicles.png" alt="Innova Crysta and Luxury Tour Bus at Temple" onerror="this.src='assets/images/scenic_highway_bus.jpg'">
+            <div class="price-burst-pill">
+              <span class="label">Starting From</span>
+              <span class="amount">₹9,999/-</span>
+              <span class="sub">Per Person (Group Tour)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. DESTINATIONS GRID (Responsive: 4-Col Desktop, 2-Col Tablet, 1-Col Mobile)
+         ========================================================================== -->
+    <section class="destinations-section" id="sectionDestinations">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">EXPLORE OUR DESTINATIONS</span>
+          <h2 class="section-title-white">Icons of Gujarat, Journeys for a Lifetime.</h2>
+          <p class="section-subtext">
+            From sacred temples to wild forests and serene coastlines, experience the diverse beauty and spiritual soul of Gujarat.
+          </p>
+        </div>
+
+        <div class="destinations-responsive-grid">
+          <!-- Dwarka -->
+          <div class="dest-card trigger-dest-modal" data-dest-id="dwarka" role="button" tabindex="0">
+            <img src="assets/crops/dest_dwarka.png" alt="Dwarkadhish Temple" class="dest-card-img" onerror="this.src='assets/images/dwarka_retina.jpg'">
+            <div class="dest-card-shade">
+              <div class="dest-icon-badge"><img src="assets/svg/icon-temple.svg" alt="Temple"></div>
+              <h3 class="dest-name">Dwarka</h3>
+              <p class="dest-highlights">Dwarkadhish Temple &amp; Bet Dwarka Island</p>
+              <button class="btn-card-explore">Explore →</button>
+            </div>
+          </div>
+
+          <!-- Somnath -->
+          <div class="dest-card trigger-dest-modal" data-dest-id="somnath" role="button" tabindex="0">
+            <img src="assets/crops/dest_somnath.png" alt="Somnath Temple" class="dest-card-img" onerror="this.src='assets/images/somnath_retina.jpg'">
+            <div class="dest-card-shade">
+              <div class="dest-icon-badge"><img src="assets/svg/icon-temple.svg" alt="Temple"></div>
+              <h3 class="dest-name">Somnath</h3>
+              <p class="dest-highlights">Somnath Temple &amp; Triveni Sangam</p>
+              <button class="btn-card-explore">Explore →</button>
+            </div>
+          </div>
+
+          <!-- Sasan Gir -->
+          <div class="dest-card trigger-dest-modal" data-dest-id="gir" role="button" tabindex="0">
+            <img src="assets/crops/dest_gir.png" alt="Asiatic Lion in Sasan Gir" class="dest-card-img" onerror="this.src='assets/images/gir_safari_retina.jpg'">
+            <div class="dest-card-shade">
+              <div class="dest-icon-badge"><img src="assets/svg/icon-lion.svg" alt="Lion"></div>
+              <h3 class="dest-name">Sasan Gir</h3>
+              <p class="dest-highlights">Wildlife Safari &amp; Nature Experience</p>
+              <button class="btn-card-explore">Explore →</button>
+            </div>
+          </div>
+
+          <!-- Nageshwar -->
+          <div class="dest-card trigger-dest-modal" data-dest-id="nageshwar" role="button" tabindex="0">
+            <img src="assets/crops/dest_nageshwar.png" alt="Nageshwar Jyotirling Shiva" class="dest-card-img">
+            <div class="dest-card-shade">
+              <div class="dest-icon-badge"><img src="assets/svg/icon-temple.svg" alt="Temple"></div>
+              <h3 class="dest-name">Nageshwar</h3>
+              <p class="dest-highlights">Nageshwar Jyotirling &amp; Sacred Sites</p>
+              <button class="btn-card-explore">Explore →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. SASAN GIR SECTION (Responsive 3-Col / 2-Col Split)
+         ========================================================================== -->
+    <section class="gir-section" id="sectionGir">
+      <div class="container">
+        <div class="gir-layout-grid">
+          <!-- Left Column: Narrative & Big Photo -->
+          <div class="gir-col-narrative">
+            <div class="gir-narrative-img">
+              <img src="assets/images/lion_family_retina.jpg" alt="Asiatic Lioness and Cubs in Gir Forest" onerror="this.src='assets/crops/gir_video_thumb.png'">
+            </div>
+            <span class="section-kicker">SASAN GIR</span>
+            <h2 class="gir-title">Into the Wild</h2>
+            <p class="gir-desc">
+              Home to the majestic Asiatic Lion, Sasan Gir offers an unforgettable wildlife experience amidst lush deciduous forests, diverse flora and fauna, and exhilarating open-top Gypsy safaris.
+            </p>
+            <button class="btn-hero-primary trigger-dest-modal" data-dest-id="gir" style="align-self: flex-start; padding: 12px 28px;">
+              <span>Discover Gir</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Middle Column: 3 Stacked Wildlife Photos -->
+          <div class="gir-photos-stack">
+            <div class="gir-photo-card">
+              <img src="assets/images/deer_retina.jpg" alt="Spotted Deer in Gir Forest" onerror="this.src='assets/crops/gir_thumb_3.png'">
+            </div>
+            <div class="gir-photo-card">
+              <img src="assets/images/peacock_retina.jpg" alt="Dancing Peacock in Sanctuary">
+            </div>
+            <div class="gir-photo-card">
+              <img src="assets/images/gir_safari_retina.jpg" alt="Open Gypsy Safari in Jungle" onerror="this.src='assets/crops/gir_thumb_2.png'">
+            </div>
+          </div>
+
+          <!-- Right Column: 4 Feature Cards -->
+          <div class="gir-features-stack">
+            <div class="gir-feature-item">
+              <div class="gir-feature-icon"><img src="assets/svg/icon-lion.svg" alt="Lion"></div>
+              <div>
+                <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 2px;">Asiatic Lions</h4>
+                <p style="font-size: 11.5px; color: rgba(255, 255, 255, 0.7);">In their natural habitat</p>
+              </div>
+            </div>
+
+            <div class="gir-feature-item">
+              <div class="gir-feature-icon"><img src="assets/svg/icon-roadtrip.svg" alt="Jeep"></div>
+              <div>
+                <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 2px;">Jeep Safari</h4>
+                <p style="font-size: 11.5px; color: rgba(255, 255, 255, 0.7);">Forest adventure</p>
+              </div>
+            </div>
+
+            <div class="gir-feature-item">
+              <div class="gir-feature-icon"><img src="assets/svg/icon-coastal.svg" alt="Flora"></div>
+              <div>
+                <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 2px;">Rich Biodiversity</h4>
+                <p style="font-size: 11.5px; color: rgba(255, 255, 255, 0.7);">Flora &amp; Fauna</p>
+              </div>
+            </div>
+
+            <div class="gir-feature-item">
+              <div class="gir-feature-icon"><img src="assets/svg/icon-shield.svg" alt="Guide"></div>
+              <div>
+                <h4 style="font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 2px;">Guided Experience</h4>
+                <p style="font-size: 11.5px; color: rgba(255, 255, 255, 0.7);">Expert naturalists</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. WHY TRAVEL FIRST HOLIDAYS (Split with Highway Bus Image)
+         ========================================================================== -->
+    <section class="whyus-section" id="sectionWhyUs">
+      <div class="container">
+        <div class="whyus-grid">
+          <div>
+            <span class="package-kicker">WHY TRAVEL FIRST HOLIDAYS</span>
+            <h2 style="font-size: clamp(26px, 3.5vw, 36px); font-weight: 800; color: #121A16; margin-bottom: 6px;">Your Journey, Our Priority.</h2>
+            <p style="font-size: 14px; color: var(--text-secondary-dark); line-height: 1.6;">
+              We ensure seamless coordination, luxurious AC pushback coach transport, handpicked pure veg hotels, and spiritual peace of mind for every family.
+            </p>
+
+            <div class="whyus-cards-row">
+              <div class="whyus-card">
+                <div class="whyus-card-icon"><img src="assets/svg/icon-actravel.svg" alt="Travel"></div>
+                <h4 style="font-size: 12px; font-weight: 700; color: #1A241F;">Safe &amp; Comfortable Travel</h4>
+              </div>
+              <div class="whyus-card">
+                <div class="whyus-card-icon"><img src="assets/svg/icon-calendar.svg" alt="Itinerary"></div>
+                <h4 style="font-size: 12px; font-weight: 700; color: #1A241F;">Well-Planned Itineraries</h4>
+              </div>
+              <div class="whyus-card">
+                <div class="whyus-card-icon"><img src="assets/svg/icon-heart.svg" alt="Experience"></div>
+                <h4 style="font-size: 12px; font-weight: 700; color: #1A241F;">Memorable Experiences</h4>
+              </div>
+              <div class="whyus-card">
+                <div class="whyus-card-icon"><img src="assets/svg/icon-shield.svg" alt="Trust"></div>
+                <h4 style="font-size: 12px; font-weight: 700; color: #1A241F;">Trusted &amp; Reliable Service</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Media with Highway Bus & Innova -->
+          <div class="whyus-media-card">
+            <img src="assets/crops/package_vehicles.png" alt="Highway Travel Fleet" onerror="this.src='assets/images/scenic_highway_bus.jpg'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. CURATED ITINERARY (Responsive Timeline Grid)
+         ========================================================================== -->
+    <section class="itinerary-section" id="sectionItinerary">
+      <div class="container">
+        <div class="itinerary-header-row">
+          <div>
+            <span class="section-kicker">4 DAYS, A LIFETIME OF MEMORIES</span>
+            <h2 style="font-size: clamp(26px, 3.5vw, 36px); font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">Curated Itinerary</h2>
+            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.78);">
+              A perfect blend of spirituality, wildlife and coastal beauty with well-planned routes and comfortable stays.
+            </p>
+          </div>
+          <button class="btn-hero-primary" onclick="openDayDetailModal(1)">
+            <span>View Detailed Itinerary</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="itinerary-days-grid">
+          <!-- Day 1 -->
+          <div class="itin-card" onclick="openDayDetailModal(1)" role="button" tabindex="0">
+            <img src="assets/crops/day1_thumb.png" alt="Dwarka Day 1" class="itin-card-img" onerror="this.src='assets/images/dwarka_retina.jpg'">
+            <div class="itin-card-body">
+              <span class="itin-card-kicker">Day 1</span>
+              <h3 class="itin-card-title">Ahmedabad → Dwarka</h3>
+              <p class="itin-card-desc">Pickup from Ahmedabad, Dwarkadhish Temple Evening Aarti</p>
+            </div>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="itin-card" onclick="openDayDetailModal(2)" role="button" tabindex="0">
+            <img src="assets/crops/day2_thumb.png" alt="Somnath Day 2" class="itin-card-img" onerror="this.src='assets/images/somnath_retina.jpg'">
+            <div class="itin-card-body">
+              <span class="itin-card-kicker">Day 2</span>
+              <h3 class="itin-card-title">Dwarka → Somnath</h3>
+              <p class="itin-card-desc">Nageshwar Jyotirling &amp; Triveni Sangam Confluence</p>
+            </div>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="itin-card" onclick="openDayDetailModal(3)" role="button" tabindex="0">
+            <img src="assets/crops/day3_thumb.png" alt="Sasan Gir Day 3" class="itin-card-img" onerror="this.src='assets/images/hero_lion_retina.jpg'">
+            <div class="itin-card-body">
+              <span class="itin-card-kicker">Day 3</span>
+              <h3 class="itin-card-title">Somnath → Sasan Gir</h3>
+              <p class="itin-card-desc">Forest Resort Check-in &amp; Relax, Evening at Leisure</p>
+            </div>
+          </div>
+
+          <!-- Day 4 -->
+          <div class="itin-card" onclick="openDayDetailModal(4)" role="button" tabindex="0">
+            <img src="assets/crops/day4_thumb.png" alt="Gir Safari Day 4" class="itin-card-img" onerror="this.src='assets/images/gir_safari_retina.jpg'">
+            <div class="itin-card-body">
+              <span class="itin-card-kicker">Day 4</span>
+              <h3 class="itin-card-title">Gir Safari &amp; Return</h3>
+              <p class="itin-card-desc">Morning Open Gypsy Safari, Return Drop to Ahmedabad</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. INTERACTIVE GUJARAT ROUTE MAP
+         ========================================================================== -->
+    <section class="routemap-section" id="sectionMap">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">EXPLORE THE JOURNEY</span>
+          <h2 class="section-title-white">Follow the Journey</h2>
+          <p class="section-subtext">A route through faith, forests and coastline across Saurashtra.</p>
+        </div>
+
+        <div class="map-card-box">
+          <div class="map-bar">
+            <div style="font-size: 11px; font-weight: 700; color: var(--gold-300);">
+              <span class="map-live-dot"></span>
+              <span>Interactive Gujarat Tour Map</span>
+            </div>
+            <button class="btn-hero-primary" id="btnPlayMapAnim" style="padding: 6px 16px; font-size: 11.5px;">
+              <span>▶</span> Simulate Tour
+            </button>
+          </div>
+
+          <div style="width: 100%; height: 440px; position: relative;">
+            <!-- INLINE INTERACTIVE SVG ROUTE MAP -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 480" width="100%" height="100%" fill="none" class="gujarat-interactive-map" style="display:block;">
+              <defs>
+                <linearGradient id="mapBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#08291F" stop-opacity="0.95"/>
+                  <stop offset="50%" stop-color="#041B14" stop-opacity="0.98"/>
+                  <stop offset="100%" stop-color="#03140F" stop-opacity="1"/>
+                </linearGradient>
+                <linearGradient id="landGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0F4232" stop-opacity="0.7"/>
+                  <stop offset="60%" stop-color="#0B3528" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#07261C" stop-opacity="0.3"/>
+                </linearGradient>
+                <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <radialGradient id="pinPulse" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#F59E0B" stop-opacity="1"/>
+                  <stop offset="70%" stop-color="#F59E0B" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="ahdPulse" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#10B981" stop-opacity="1"/>
+                  <stop offset="70%" stop-color="#10B981" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="380" height="480" fill="url(#mapBgGrad)"/>
+
+              <g stroke="#134E39" stroke-width="0.8" opacity="0.3" stroke-dasharray="3 4">
+                <path d="M20 60 Q180 80 360 40"/>
+                <path d="M10 140 Q150 180 370 120"/>
+                <path d="M30 220 Q200 240 350 200"/>
+                <path d="M10 300 Q160 340 370 280"/>
+                <path d="M20 380 Q180 400 360 360"/>
+              </g>
+
+              <g class="landmass" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))">
+                <path d="M 120 40 C 180 35, 260 45, 340 50 C 360 80, 350 130, 310 160 C 280 180, 270 210, 260 250 C 255 280, 265 310, 270 340 C 275 390, 240 430, 200 440 C 150 445, 120 410, 100 370 C 70 310, 50 260, 40 210 C 32 170, 45 130, 80 120 C 110 110, 120 80, 120 40 Z" fill="url(#landGrad)" stroke="#1D664E" stroke-width="1.8"/>
+                <path d="M 35 220 C 42 270, 65 320, 95 380 C 115 420, 150 455, 205 448" stroke="#38BDF8" stroke-width="1.2" opacity="0.4" stroke-dasharray="2 3" fill="none"/>
+              </g>
+
+              <!-- Tour Route Path -->
+              <path id="tourRoutePath" class="tour-route-line"
+                    d="M 280 95 C 210 110, 120 130, 75 185 C 55 240, 75 320, 145 405 C 165 415, 190 395, 210 335 C 235 255, 265 170, 280 95" 
+                    stroke="#D4AF37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-dasharray="6 6" fill="none" filter="url(#glowGold)"/>
+
+              <!-- Waypoint 1: Ahmedabad -->
+              <g class="map-waypoint" id="wp-ahmedabad" transform="translate(280, 95)" cursor="pointer" data-day="0">
+                <circle cx="0" cy="0" r="16" fill="url(#ahdPulse)" class="pulse-ring"/>
+                <circle cx="0" cy="0" r="8" fill="#10B981" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="0" cy="0" r="3" fill="#FFFFFF"/>
+                <g transform="translate(12, -18)">
+                  <rect x="0" y="0" width="85" height="34" rx="8" fill="#06241A" stroke="#10B981" stroke-width="1" opacity="0.95"/>
+                  <text x="8" y="14" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Ahmedabad</text>
+                  <text x="8" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="600" fill="#34D399">Pickup &amp; Drop</text>
+                </g>
+              </g>
+
+              <!-- Waypoint 2: Dwarka -->
+              <g class="map-waypoint" id="wp-dwarka" transform="translate(75, 185)" cursor="pointer" data-day="1">
+                <circle cx="0" cy="0" r="18" fill="url(#pinPulse)" class="pulse-ring"/>
+                <circle cx="0" cy="0" r="11" fill="#D4AF37" stroke="#FFFBEB" stroke-width="2"/>
+                <path d="M 0 -6 L 4 2 L -4 2 Z" fill="#041F16"/>
+                <rect x="-3" y="2" width="6" height="4" fill="#041F16"/>
+                <g transform="translate(-75, 8)">
+                  <rect x="0" y="0" width="70" height="34" rx="8" fill="#06241A" stroke="#D4AF37" stroke-width="1" opacity="0.95"/>
+                  <text x="8" y="14" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF">Dwarka</text>
+                  <text x="8" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="600" fill="#FCD34D">Day 1</text>
+                </g>
+              </g>
+
+              <!-- Waypoint 3: Somnath -->
+              <g class="map-waypoint" id="wp-somnath" transform="translate(145, 405)" cursor="pointer" data-day="2">
+                <circle cx="0" cy="0" r="18" fill="url(#pinPulse)" class="pulse-ring"/>
+                <circle cx="0" cy="0" r="11" fill="#D4AF37" stroke="#FFFBEB" stroke-width="2"/>
+                <path d="M 0 -6 L 4 2 L -4 2 Z" fill="#041F16"/>
+                <rect x="-3" y="2" width="6" height="4" fill="#041F16"/>
+                <g transform="translate(12, -22)">
+                  <rect x="0" y="0" width="72" height="34" rx="8" fill="#06241A" stroke="#D4AF37" stroke-width="1" opacity="0.95"/>
+                  <text x="8" y="14" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF">Somnath</text>
+                  <text x="8" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="600" fill="#FCD34D">Day 2</text>
+                </g>
+              </g>
+
+              <!-- Waypoint 4: Sasan Gir -->
+              <g class="map-waypoint" id="wp-gir" transform="translate(210, 335)" cursor="pointer" data-day="3">
+                <circle cx="0" cy="0" r="20" fill="url(#pinPulse)" class="pulse-ring"/>
+                <circle cx="0" cy="0" r="12" fill="#F59E0B" stroke="#FFFBEB" stroke-width="2"/>
+                <circle cx="-3" cy="-4" r="1.5" fill="#041F16"/>
+                <circle cx="3" cy="-4" r="1.5" fill="#041F16"/>
+                <circle cx="0" cy="0" r="2.5" fill="#041F16"/>
+                <circle cx="-4" cy="2" r="1.2" fill="#041F16"/>
+                <circle cx="4" cy="2" r="1.2" fill="#041F16"/>
+                <g transform="translate(-78, -32)">
+                  <rect x="0" y="0" width="74" height="34" rx="8" fill="#06241A" stroke="#F59E0B" stroke-width="1" opacity="0.95"/>
+                  <text x="8" y="14" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#FFFFFF">Sasan Gir</text>
+                  <text x="8" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="600" fill="#FCD34D">Day 3 &amp; 4</text>
+                </g>
+              </g>
+
+              <!-- Tour Vehicle -->
+              <g id="animatedTourCar" transform="translate(280, 95)">
+                <g transform="translate(-14, -14)">
+                  <rect x="2" y="5" width="24" height="15" rx="4" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.4))"/>
+                  <rect x="6" y="8" width="6" height="5" rx="1" fill="#0E2E23"/>
+                  <rect x="15" y="8" width="8" height="5" rx="1" fill="#0E2E23"/>
+                  <circle cx="7" cy="20" r="2.5" fill="#1E293B"/>
+                  <circle cx="21" cy="20" r="2.5" fill="#1E293B"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. MOMENTS THROUGH THE LENS (5-Photo Strip)
+         ========================================================================== -->
+    <section class="moments-section" id="sectionMoments">
+      <div class="container">
+        <div class="section-head" style="margin-bottom: 20px;">
+          <span class="section-kicker">THROUGH THE LENS</span>
+          <h2 class="section-title-white">Moments from Our Journeys</h2>
+        </div>
+
+        <div class="moments-strip-row">
+          <div class="moment-item">
+            <img src="assets/images/hero_lion_retina.jpg" alt="Asiatic Lion Face">
+          </div>
+          <div class="moment-item">
+            <img src="assets/crops/lens_photo_1.png" alt="Grand Temple Aarti" onerror="this.src='assets/images/temple_sunset_retina.jpg'">
+          </div>
+          <div class="moment-item">
+            <img src="assets/crops/lens_photo_3.png" alt="Somnath Ocean Temple" onerror="this.src='assets/images/somnath_retina.jpg'">
+          </div>
+          <div class="moment-item">
+            <img src="assets/images/lion_family_retina.jpg" alt="Lion Pride">
+          </div>
+          <div class="moment-item">
+            <img src="assets/images/gir_safari_retina.jpg" alt="Open Jeep Safari in Gir">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. FREQUENTLY ASKED QUESTIONS (Compliant Details/Summary)
+         ========================================================================== -->
+    <section class="faq-section" id="sectionFaq">
+      <div class="container faq-container">
+        <div class="section-head" style="margin-bottom: 30px;">
+          <span class="section-kicker">FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-title-white">Travel Queries, Answered</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-summary">
+              <span>What is included in this Gujarat Tour package?</span>
+              <div class="faq-icon-box">+</div>
+            </summary>
+            <div class="faq-body-wrap" hidden="until-found">
+              <p>Our signature package includes comfortable group AC pushback luxury bus travel for all sightseeing and transfers, 3 nights hotel accommodation at verified pure vegetarian properties, daily breakfast and dinner, driver allowances, toll taxes, and dedicated Gir jungle safari booking assistance with forest department permit.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Can we book a private vehicle (Innova Crysta / Sedan) instead of the bus?</span>
+              <div class="faq-icon-box">+</div>
+            </summary>
+            <div class="faq-body-wrap" hidden="until-found">
+              <p>Yes, absolutely! While our standard package is organized as a comfortable group AC luxury bus tour, we readily arrange exclusive private AC cabs (Toyota Innova Crysta, Maruti Ertiga, or Tempo Traveller for families). Simply connect with us on WhatsApp for an instant customized private cab quote.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Where is the tour pickup from?</span>
+              <div class="faq-icon-box">+</div>
+            </summary>
+            <div class="faq-body-wrap" hidden="until-found">
+              <p>Complimentary pickup is provided from Ahmedabad Sardar Vallabhbhai Patel International Airport (AMD), Ahmedabad Railway Station (ADI), or any central hotel in Ahmedabad. En-route boarding at Rajkot or Jamnagar is also available on request.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Is the Sasan Gir Safari permit guaranteed?</span>
+              <div class="faq-icon-box">+</div>
+            </summary>
+            <div class="faq-body-wrap" hidden="until-found">
+              <p>Yes! We arrange official government permits and secure open 4x4 Gypsy vehicles with registered forest trackers for your morning safari in the Gir Jungle Trail / Devalia Safari Zone.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>What type of accommodation and food are provided?</span>
+              <div class="faq-icon-box">+</div>
+            </summary>
+            <div class="faq-body-wrap" hidden="until-found">
+              <p>We provide verified 3-star AC hotels in Dwarka and Somnath, and a luxury resort with swimming pool in Sasan Gir. All included meals are 100% pure vegetarian, offering authentic Gujarati, Kathiyawadi, and North Indian delicacies.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. LET'S PLAN HOLIDAY BANNER
+         ========================================================================== -->
+    <section class="plan-banner-section">
+      <img src="assets/crops/footer_banner.png" alt="Somnath Sunset Temple" class="plan-bg-img" onerror="this.src='assets/images/temple_sunset_retina.jpg'">
+      <div class="plan-box-content">
+        <span class="section-kicker">WHY TRAVEL FIRST HOLIDAYS</span>
+        <h2 style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: #FFFFFF; margin-bottom: 12px;">Let's Plan Your Gujarat Holiday</h2>
+        <p style="font-size: 15px; color: rgba(255, 255, 255, 0.9); margin-bottom: 28px; line-height: 1.6;">
+          Reach out to our Saurashtra travel experts for customized group bookings, senior pilgrim care, and memorable travel experiences.
+        </p>
+
+        <div class="plan-actions-row">
+          <a href="https://wa.me/919876543210?text=Hi%20Travel%20First%20Holidays!%20Please%20help%20me%20plan%20my%20Gujarat%20Tour%20Package." class="btn-hero-primary" style="padding: 14px 34px;" target="_blank" rel="noopener">
+            <img src="assets/svg/icon-whatsapp.svg" alt="WhatsApp" width="20" height="20">
+            <span>Enquire on WhatsApp</span>
+          </a>
+          <a href="tel:+919876543210" class="btn-hero-secondary" style="padding: 13px 30px;">
+            <img src="assets/svg/icon-call.svg" alt="Call Us" width="18" height="18" style="color:var(--gold-300);">
+            <span>Call Us</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       12. RICH 5-COLUMN FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" id="sectionFooter">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Social -->
+        <div>
+          <img src="assets/svg/brand-logo.svg" alt="Travel First Holidays" style="height: 48px; margin-bottom: 14px;">
+          <p style="font-size: 12.5px; color: #94A3B8; margin-bottom: 18px; line-height: 1.5;">
+            Explore. Pray. Discover. Together.<br>
+            Gujarat's premier spiritual and wildlife tour operator.
+          </p>
+          <div class="footer-social-row">
+            <a href="#" class="social-circle-btn" title="Instagram">📷</a>
+            <a href="#" class="social-circle-btn" title="Facebook">📘</a>
+            <a href="#" class="social-circle-btn" title="YouTube">▶️</a>
+            <a href="#" class="social-circle-btn" title="Twitter / X">𝕏</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="#sectionHero">Home</a></li>
+            <li><a href="#sectionPackage">Tour Packages</a></li>
+            <li><a href="#sectionDestinations">Destinations</a></li>
+            <li><a href="#sectionWhyUs">About Us</a></li>
+            <li><a href="#sectionMoments">Gallery</a></li>
+            <li><a href="#sectionFaq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Top Destinations -->
+        <div>
+          <h4 class="footer-title">Top Destinations</h4>
+          <ul class="footer-links-list">
+            <li><a href="#sectionDestinations">Dwarka</a></li>
+            <li><a href="#sectionDestinations">Somnath</a></li>
+            <li><a href="#sectionGir">Sasan Gir</a></li>
+            <li><a href="#sectionDestinations">Nageshwar</a></li>
+            <li><a href="#sectionDestinations">Bet Dwarka</a></li>
+            <li><a href="#sectionDestinations">Triveni Sangam</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Us -->
+        <div>
+          <h4 class="footer-title">Contact Us</h4>
+          <div class="footer-contact-line">
+            <img src="assets/svg/icon-call.svg" alt="Phone" width="16" height="16">
+            <span>+91 98987 65123</span>
+          </div>
+          <div class="footer-contact-line">
+            <img src="assets/svg/icon-call.svg" alt="Phone" width="16" height="16">
+            <span>+91 98984 56119</span>
+          </div>
+          <div class="footer-contact-line">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>info@travelfirstholidays.com</span>
+          </div>
+          <div class="footer-contact-line">
+            <img src="assets/svg/icon-pickup.svg" alt="Location" width="16" height="16">
+            <span>Ahmedabad, Gujarat, India</span>
+          </div>
+        </div>
+
+        <!-- Col 5: WhatsApp Action Card -->
+        <div>
+          <div class="footer-whatsapp-card">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <img src="assets/svg/icon-whatsapp.svg" alt="WhatsApp" width="24" height="24">
+              <span style="font-size: 13.5px; font-weight: 700; color: #FFFFFF;">Plan Your Trip Today</span>
+            </div>
+            <p style="font-size: 11.5px; color: #94A3B8; line-height: 1.45;">
+              Get in touch for group bus seat reservations, private cab options, and seasonal offers.
+            </p>
+            <a href="https://wa.me/919876543210?text=Hi%20Travel%20First%20Holidays!%20Please%20share%20tour%20package%20details." class="btn-hero-primary" style="justify-content:center; padding:9px 16px; font-size:12.5px;" target="_blank" rel="noopener">
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <span>© 2024 Travel First Holidays. All Rights Reserved.</span>
+        <div class="sub-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Cancellation Policy</a>
+        </div>
+        <span>Designed with ❤️ for incredible journeys</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       13. PERSISTENT FLOATING QUICK CONTACT ACTIONS (MOBILE & DESKTOP)
+       ========================================================================== -->
+
+  <!-- Mobile Floating Sticky Dual Bar (Fixed at bottom on phones < 768px) -->
+  <div class="mobile-floating-dual-bar" aria-label="Mobile Quick Contact Actions">
+    <a href="https://wa.me/919876543210?text=Hello%20Travel%20First%20Holidays!%20I%20want%20to%20enquire%20about%20the%20Gujarat%20Tour%20Package." class="dual-btn-wa" target="_blank" rel="noopener">
+      <img src="assets/svg/icon-whatsapp.svg" alt="WhatsApp" width="18" height="18">
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+919876543210" class="dual-btn-call">
+      <img src="assets/svg/icon-call.svg" alt="Call Us" width="16" height="16">
+      <span>Call Us</span>
+    </a>
+  </div>
+
+  <!-- Desktop & Tablet Floating Quick Contact Dock (Bottom Right on >= 769px) -->
+  <div class="desktop-floating-dock" aria-label="Instant Contact Dock">
+    <a href="https://wa.me/919876543210?text=Hello%20Travel%20First%20Holidays!%20I%20am%20interested%20in%20the%20Gujarat%20Tour%20Package." class="float-dock-wa" target="_blank" rel="noopener" title="Chat on WhatsApp">
+      <img src="assets/svg/icon-whatsapp.svg" alt="WhatsApp">
+      <span>WhatsApp Us</span>
+    </a>
+    <a href="tel:+919876543210" class="float-dock-call" title="Call Us Directly">
+      <img src="assets/svg/icon-call.svg" alt="Call">
+      <span>Call +91 98987 65123</span>
+    </a>
+  </div>
+
+  <!-- ==========================================================================
+       14. INTERACTIVE BOOKING CALCULATOR & MODALS
+       ========================================================================== -->
+
+  <!-- BOOKING CALCULATOR DRAWER (With Group Bus vs Private Cab Option) -->
+  <div class="modal-overlay" id="bookingDrawerModal" role="dialog" aria-modal="true" aria-labelledby="bookingDrawerTitle">
+    <div class="drawer-content">
+      <div class="drawer-drag-bar"></div>
+      
+      <div class="drawer-header">
+        <div>
+          <span style="font-size: 10px; font-weight: 800; color: #B45309; letter-spacing: 1.5px; text-transform: uppercase;">INSTANT QUOTE &amp; SEAT RESERVATION</span>
+          <h3 id="bookingDrawerTitle" style="font-size: 18px; font-weight: 700; color: #141E19;">Plan Your Gujarat Journey</h3>
+        </div>
+        <button class="drawer-close-btn modal-close-trigger" aria-label="Close Drawer">&times;</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Travel Date -->
+        <div>
+          <label for="bookingDateInput" style="display: block; font-size: 11px; font-weight: 700; color: #52635B; margin-bottom: 6px;">SELECT TRAVEL DATE</label>
+          <input type="date" id="bookingDateInput" style="width: 100%; padding: 10px 14px; border: 1.5px solid #CBD5E1; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 600; color: #1E293B;">
+        </div>
+
+        <!-- Travelers Counter -->
+        <div>
+          <label style="display: block; font-size: 11px; font-weight: 700; color: #52635B; margin-bottom: 6px;">NUMBER OF TRAVELERS</label>
+          <div style="display: flex; align-items: center; justify-content: space-between; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 8px 14px; border-radius: 12px;">
+            <span style="font-size: 13px; font-weight: 600; color: #1E293B;">Seats / Guests (12+ years)</span>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <button id="calcMinusTravelers" style="width: 32px; height: 32px; border-radius: 50%; background: #E2E8F0; font-size: 18px; font-weight: 700; color: #1E293B; display: flex; align-items: center; justify-content: center;">-</button>
+              <span id="calcTravelersCount" style="font-size: 16px; font-weight: 800; min-width: 24px; text-align: center; color: #0F172A;">2</span>
+              <button id="calcPlusTravelers" style="width: 32px; height: 32px; border-radius: 50%; background: var(--gold-400); font-size: 18px; font-weight: 700; color: #1A1202; display: flex; align-items: center; justify-content: center;">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Travel Mode Selection (Group Bus vs Private Cab Option) -->
+        <div>
+          <label style="display: block; font-size: 11px; font-weight: 700; color: #52635B; margin-bottom: 6px;">TRAVEL MODE &amp; VEHICLE</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <label style="display: flex; flex-direction: column; padding: 12px; border: 2px solid var(--gold-400); background: #FFFDF7; border-radius: 12px; cursor: pointer;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                <input type="radio" name="vehicleChoice" value="bus" checked>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">Group AC Bus</span>
+              </div>
+              <span style="font-size: 10px; color: #047857; font-weight: 700;">Standard • ₹9,999/person</span>
+              <span style="font-size: 9px; color: #64748B; margin-top: 2px;">2x2 Pushback AC Coach</span>
+            </label>
+
+            <label style="display: flex; flex-direction: column; padding: 12px; border: 1.5px solid #CBD5E1; border-radius: 12px; cursor: pointer;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                <input type="radio" name="vehicleChoice" value="private">
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">Private AC Cab</span>
+              </div>
+              <span style="font-size: 10px; color: #B45309; font-weight: 700;">Innova / Sedan Upgrade</span>
+              <span style="font-size: 9px; color: #64748B; margin-top: 2px;">Custom quote on WhatsApp</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Hotel Category -->
+        <div>
+          <label style="display: block; font-size: 11px; font-weight: 700; color: #52635B; margin-bottom: 6px;">HOTEL CATEGORY</label>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+            <label style="display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1.5px solid #E2E8F0; border-radius: 10px; cursor: pointer;">
+              <input type="radio" name="hotelChoice" value="standard" checked>
+              <div>
+                <p style="font-size: 11.5px; font-weight: 700; color: #1E293B;">Deluxe 3★ AC</p>
+                <p style="font-size: 9px; color: #64748B;">Included in Base Fare</p>
+              </div>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1.5px solid var(--gold-400); background: #FFFDF7; border-radius: 10px; cursor: pointer;">
+              <input type="radio" name="hotelChoice" value="heritage">
+              <div>
+                <p style="font-size: 11.5px; font-weight: 700; color: #1E293B;">Luxury Heritage 4★</p>
+                <p style="font-size: 9px; color: #B45309;">Pool &amp; Campfire Resort</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Price Summary & CTAs -->
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+            <span style="font-size: 11px; font-weight: 600; color: #64748B;">Estimated Total (All Taxes Incl.):</span>
+            <span id="calcTotalPrice" style="font-size: 22px; font-weight: 800; color: #14533D;">₹19,998/-</span>
+          </div>
+          <p style="font-size: 9.5px; color: #10B981; font-weight: 600;">✓ Includes Sasan Gir Safari Pass, AC Travel, 3N Stay &amp; Meals</p>
+        </div>
+
+        <a id="btnConfirmWhatsApp" href="#" class="btn-hero-primary" style="width: 100%; justify-content: center; padding: 14px;" target="_blank" rel="noopener">
+          <img src="assets/svg/icon-whatsapp.svg" alt="WhatsApp" width="20" height="20">
+          <span>Confirm &amp; Book on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITINERARY DAY DETAIL MODAL -->
+  <div class="modal-overlay" id="detailDrawerModal" role="dialog" aria-modal="true">
+    <div class="drawer-content">
+      <div class="drawer-drag-bar"></div>
+      <div class="drawer-header">
+        <h3 id="detailDrawerTitle" style="font-size: 18px; font-weight: 700; color: #141E19;">Day Schedule</h3>
+        <button class="drawer-close-btn modal-close-trigger" aria-label="Close Drawer">&times;</button>
+      </div>
+      <div id="detailDrawerBody">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- PHOTO LIGHTBOX MODAL -->
+  <div class="modal-overlay" id="lightboxModal" role="dialog" aria-modal="true">
+    <div style="position: relative; max-width: 90vw; max-height: 85vh; display: flex; flex-direction: column; align-items: center;">
+      <button class="modal-close-trigger" style="position: absolute; top: -38px; right: 0; color: #FFFFFF; font-size: 30px; font-weight: 700; background: none; border: none;">&times;</button>
+      <img id="lightboxImg" src="" alt="Enlarged Photo" style="max-width: 100%; max-height: 75vh; border-radius: 12px; object-fit: contain; box-shadow: 0 25px 60px rgba(0,0,0,0.8);">
+      <p id="lightboxCaption" style="color: #FFFFFF; font-size: 13px; font-weight: 600; margin-top: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); text-align: center;"></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/itinerary-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+'''
+
+with open('D:/hussain/index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content.strip())
+
+print("Generated clean, hosting-ready index.html successfully!")
+

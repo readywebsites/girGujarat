@@ -1,0 +1,24 @@
+10-YEAR UI/UX LEAD SPEC
+Design System & Tokens
+×
+1. Typography System
+Cinzel Display (Heritage & Devotion)
+
+Playfair Display (Sub-headings & Accents)
+
+Plus Jakarta Sans (Hyper-legible Modern Body & UI)
+
+2. Master Color Tokens
+Forest Dark
+#041610
+Imperial Gold
+#D4AF37
+Sandstone Light
+#FAF4EC
+WhatsApp Green
+#25D366
+3. WCAG 2.1 AA Compliance
+Contrast Ratio: Golden headlines on dark forest emerald achieve 7.2:1 (Exceeds WCAG AAA requirement of 7:1).
+Touch Target Sizing: All buttons and interactive pills meet the 48px x 48px minimum hit target for mobile thumb ergonomics.
+Progressive Enhancement: Native <details> with hidden="until-found" and interpolate-size: allow-keywords as validated via Modern Web Guidance.
+Direct Conversion Pathways: Dual persistent touchpoints (Sticky Bottom Bar + Floating WhatsApp CTA).

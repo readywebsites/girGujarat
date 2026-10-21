@@ -1,0 +1,1312 @@
+/**
+ * DESKTOP LANDING PAGE STYLESHEET
+ * Precision-engineered to match the desktop layout reference
+ */
+
+/* ==========================================================================
+   DESKTOP MASTER CONTAINER
+   ========================================================================== */
+.desktop-landing-wrapper {
+  display: none;
+  width: 100%;
+  background-color: var(--emerald-950);
+  color: var(--text-primary-dark);
+  overflow-x: hidden;
+}
+
+/* Show desktop layout in mode-web OR on wide screens */
+.stage-canvas.mode-web .desktop-landing-wrapper {
+  display: block;
+}
+.stage-canvas.mode-web .mobile-app-wrapper {
+  display: none !important;
+}
+
+@media (min-width: 992px) {
+  body:not(.force-mobile) .desktop-landing-wrapper {
+    display: block;
+  }
+  body:not(.force-mobile) .stage-canvas:not(.mode-device):not(.mode-storyboard) .mobile-app-wrapper {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   1. DESKTOP HEADER & NAVIGATION BAR
+   ========================================================================== */
+.desktop-header-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(4, 22, 16, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.desktop-header-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desktop-brand-logo {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-brand-logo img {
+  height: 48px;
+  width: auto;
+}
+
+.desktop-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.desktop-nav-link {
+  color: #E2E8F0;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: color var(--transition-fast);
+  position: relative;
+  padding: 6px 0;
+}
+
+.desktop-nav-link:hover, .desktop-nav-link.active {
+  color: var(--gold-300);
+}
+
+.desktop-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold-gradient);
+  border-radius: 2px;
+}
+
+.desktop-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--whatsapp-gradient);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-whatsapp);
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.desktop-header-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.desktop-header-cta svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   2. DESKTOP HERO SECTION
+   ========================================================================== */
+.desktop-hero-section {
+  position: relative;
+  min-height: 720px;
+  padding: 120px 32px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  background: #061912;
+  overflow: hidden;
+}
+
+.desktop-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.85;
+}
+
+.desktop-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(4, 22, 16, 0.4) 0%, rgba(4, 22, 16, 0.92) 90%),
+              linear-gradient(180deg, rgba(4, 22, 16, 0.6) 0%, rgba(4, 22, 16, 0.3) 50%, var(--emerald-950) 100%);
+}
+
+.desktop-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Top-right Route Pin Indicator on Hero */
+.hero-route-badge-float {
+  position: absolute;
+  top: 140px;
+  right: 60px;
+  z-index: 15;
+  background: rgba(4, 22, 16, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: right;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.route-badge-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-300);
+}
+
+.route-badge-stops {
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.desktop-hero-kicker {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.desktop-hero-title {
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.desktop-hero-title-italic {
+  display: block;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 50px;
+  background: linear-gradient(135deg, #FFFBEB 0%, #FDE68A 45%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 22px;
+}
+
+/* 3 Feature Pills */
+.desktop-hero-pills {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.desktop-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: #F8FAFC;
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.desktop-pill:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--gold-400);
+  transform: translateY(-2px);
+}
+
+.desktop-pill-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--gold-300);
+}
+
+/* Hero Dual CTAs */
+.desktop-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
+  background: var(--gold-gradient);
+  color: #1A1202;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-gold), var(--shadow-inner-gold);
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 12px 32px -4px rgba(212, 175, 55, 0.6);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 34px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-fast);
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Floating Inclusions Strip at bottom of hero */
+.desktop-inclusions-strip {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(6, 28, 20, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-full);
+  padding: 16px 32px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #F8FAFC;
+}
+
+.strip-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-300);
+  flex-shrink: 0;
+}
+
+.strip-icon svg, .strip-icon img {
+  width: 18px;
+  height: 18px;
+}
+
+.strip-text {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* ==========================================================================
+   3. DESKTOP FEATURED TOUR PACKAGE
+   ========================================================================== */
+.desktop-featured-section {
+  background: #FAF4EC;
+  padding: 70px 32px;
+}
+
+.desktop-featured-card {
+  max-width: 1240px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--sand-200);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.featured-card-left {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--gold-600);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.featured-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: #121A16;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.featured-duration {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--emerald-700);
+  margin-bottom: 14px;
+}
+
+.featured-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary-dark);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* 6 Inclusions Icons Row */
+.featured-icons-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--sand-200);
+}
+
+.featured-icon-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.featured-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sand-100);
+  border: 1px solid var(--sand-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald-850);
+}
+
+.featured-icon-circle img {
+  width: 20px;
+  height: 20px;
+}
+
+.featured-icon-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #2D3748;
+  line-height: 1.2;
+}
+
+.featured-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-book-package {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--emerald-600);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px -4px rgba(5, 150, 105, 0.4);
+  transition: all var(--transition-fast);
+}
+
+.btn-book-package:hover {
+  background: var(--emerald-700);
+  transform: translateY(-2px);
+}
+
+.btn-view-itinerary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: transparent;
+  border: 1.5px solid var(--sand-300);
+  color: #2D3748;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.btn-view-itinerary:hover {
+  background: var(--sand-100);
+  border-color: #121A16;
+}
+
+/* Featured Card Right with Temple & Fleet */
+.featured-card-right {
+  position: relative;
+  background: #0B241A;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.featured-right-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-price-badge-desktop {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  background: var(--gold-gradient);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-gold), 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  z-index: 5;
+}
+
+.price-badge-desktop-label {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #3F2B04;
+  display: block;
+}
+
+.price-badge-desktop-amount {
+  font-size: 24px;
+  font-weight: 900;
+  color: #1A1202;
+  line-height: 1.1;
+  display: block;
+}
+
+.price-badge-desktop-sub {
+  font-size: 9px;
+  font-weight: 700;
+  color: #3F2B04;
+  display: block;
+}
+
+/* ==========================================================================
+   4. DESKTOP DESTINATIONS GRID (4 Across)
+   ========================================================================== */
+.desktop-destinations-section {
+  background: #082018;
+  color: #FFFFFF;
+  padding: 80px 32px;
+}
+
+.desktop-destinations-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.desktop-section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.dest-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dest-grid-card {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.dest-grid-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-400);
+}
+
+.dest-grid-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.dest-grid-card:hover .dest-grid-bg {
+  transform: scale(1.08);
+}
+
+.dest-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, 
+    rgba(4, 22, 16, 0.1) 0%, 
+    rgba(4, 22, 16, 0.6) 50%, 
+    rgba(4, 22, 16, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 20px;
+}
+
+.dest-grid-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-300);
+  margin-bottom: 12px;
+}
+
+.dest-grid-icon svg, .dest-grid-icon img {
+  width: 18px;
+  height: 18px;
+}
+
+.dest-grid-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.dest-grid-sub {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.btn-dest-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.dest-grid-card:hover .btn-dest-explore {
+  background: var(--gold-gradient);
+  color: #1A1202;
+  border-color: transparent;
+}
+
+/* ==========================================================================
+   5. DESKTOP SASAN GIR INTO THE WILD (3-Column Split)
+   ========================================================================== */
+.desktop-gir-section {
+  background: #04140D;
+  color: #FFFFFF;
+  padding: 80px 32px;
+}
+
+.desktop-gir-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.gir-left-narrative {
+  display: flex;
+  flex-direction: column;
+}
+
+.gir-narrative-media {
+  width: 100%;
+  height: 240px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.gir-narrative-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gir-narrative-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.gir-narrative-desc {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Middle Column: 3 Stacked Wildlife Photos */
+.gir-middle-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gir-stacked-photo {
+  height: 120px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-fast);
+}
+
+.gir-stacked-photo:hover {
+  transform: scale(1.03);
+  border-color: var(--gold-400);
+}
+
+.gir-stacked-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right Column: 4 Feature Cards */
+.gir-right-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gir-feature-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.gir-feature-box:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--gold-400);
+  transform: translateX(4px);
+}
+
+.gir-feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.18);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-300);
+  flex-shrink: 0;
+}
+
+.gir-feature-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.gir-feature-sub {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   6. DESKTOP WHY TRAVEL FIRST (Split with Highway Bus Image)
+   ========================================================================== */
+.desktop-whyus-section {
+  background: #FAF4EC;
+  padding: 70px 32px;
+}
+
+.desktop-whyus-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.whyus-left-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.whyus-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.whyus-card-desktop {
+  background: #FFFFFF;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-md);
+  padding: 20px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-fast);
+}
+
+.whyus-card-desktop:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-400);
+}
+
+.whyus-right-media {
+  height: 320px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.whyus-right-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   7. DESKTOP CURATED ITINERARY (Horizontal Timeline with Connector Arrows)
+   ========================================================================== */
+.desktop-itinerary-section {
+  background: #071F17;
+  color: #FFFFFF;
+  padding: 80px 32px;
+}
+
+.desktop-itinerary-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.itinerary-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+.itinerary-timeline-horizontal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.itinerary-day-card-desktop {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.itinerary-day-card-desktop:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--gold-400);
+  transform: translateY(-4px);
+}
+
+.day-card-media {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.day-card-body {
+  padding: 16px;
+  flex: 1;
+}
+
+.day-card-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--gold-300);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.day-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.day-card-desc {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   8. DESKTOP MOMENTS THROUGH THE LENS (5-Photo Strip)
+   ========================================================================== */
+.desktop-moments-section {
+  background: #03100B;
+  color: #FFFFFF;
+  padding: 70px 32px;
+}
+
+.moments-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.moments-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.moments-photo-item {
+  height: 180px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.moments-photo-item:hover {
+  transform: scale(1.04);
+  border-color: var(--gold-400);
+}
+
+.moments-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   9. DESKTOP LET'S PLAN HOLIDAY BANNER
+   ========================================================================== */
+.desktop-plan-banner-section {
+  position: relative;
+  min-height: 380px;
+  padding: 80px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  background: #061912;
+  overflow: hidden;
+}
+
+.plan-banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: saturate(1.2);
+}
+
+.plan-banner-content {
+  position: relative;
+  z-index: 5;
+  max-width: 700px;
+}
+
+/* ==========================================================================
+   10. DESKTOP RICH 5-COLUMN FOOTER
+   ========================================================================== */
+.desktop-footer {
+  background: #030F0A;
+  color: #E2E8F0;
+  padding: 70px 32px 30px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.desktop-footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr 1.4fr;
+  gap: 36px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-col-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--gold-300);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav-list a {
+  font-size: 12.5px;
+  color: #94A3B8;
+  transition: color var(--transition-fast);
+}
+
+.footer-nav-list a:hover {
+  color: #FFFFFF;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: #94A3B8;
+  margin-bottom: 12px;
+}
+
+.footer-contact-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gold-300);
+}
+
+.footer-social-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.footer-social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-icon:hover {
+  background: var(--gold-gradient);
+  color: #1A1202;
+  border-color: transparent;
+}
+
+/* WhatsApp Trip Planning Card in Footer */
+.footer-wa-card {
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-wa-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-wa-header img {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-wa-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.footer-wa-desc {
+  font-size: 11.5px;
+  color: #94A3B8;
+  line-height: 1.45;
+}
+
+.sub-footer-row {
+  max-width: 1280px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  color: #64748B;
+}
+
+.sub-footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.sub-footer-links a {
+  color: #64748B;
+}
+
+.sub-footer-links a:hover {
+  color: #CBD5E1;
+}
+
+/* ==========================================================================
+   11. PERSISTENT FLOATING STICKY QUICK-ACTION BARS (MOBILE & DESKTOP)
+   ========================================================================== */
+
+/* Mobile Sticky Dual Bar (WhatsApp & Call) - Anchored at the bottom of the screen */
+.mobile-sticky-dual-bar {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 28px);
+  max-width: 410px;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 10px;
+  padding: 8px 10px;
+  background: rgba(4, 22, 16, 0.88);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-full);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), var(--shadow-gold);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Inside iPhone shell frame */
+.stage-canvas.mode-device .mobile-sticky-dual-bar {
+  position: absolute;
+  bottom: 22px;
+  width: calc(100% - 32px);
+}
+
+.dual-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--whatsapp-gradient);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-whatsapp);
+  white-space: nowrap;
+}
+
+.dual-btn-wa:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.dual-btn-wa svg, .dual-btn-wa img {
+  width: 18px;
+  height: 18px;
+}
+
+.dual-btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.dual-btn-call:hover {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: var(--gold-300);
+  transform: translateY(-1px);
+}
+
+.dual-btn-call svg, .dual-btn-call img {
+  width: 16px;
+  height: 16px;
+  color: var(--gold-300);
+}
+
+/* Desktop Persistent Floating Action Bar (visible at all times on bottom right) */
+.desktop-floating-actions {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .desktop-floating-actions {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .float-pill-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: var(--whatsapp-gradient);
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-whatsapp);
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+  }
+
+  .float-pill-wa:hover {
+    transform: translateY(-2px) scale(1.02);
+    filter: brightness(1.08);
+  }
+
+  .float-pill-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 20px;
+    background: rgba(4, 22, 16, 0.95);
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .float-pill-call:hover {
+    transform: translateY(-2px) scale(1.02);
+    border-color: var(--gold-300);
+    background: rgba(6, 31, 23, 1);
+  }
+
+  .float-pill-call svg {
+    width: 16px;
+    height: 16px;
+    color: var(--gold-300);
+  }
+}
+
