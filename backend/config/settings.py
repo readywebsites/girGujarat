@@ -118,12 +118,24 @@ if DB_ENGINE == 'django.db.backends.postgresql':
         }
     }
 else:
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.sqlite3',
+    #         'NAME': BASE_DIR / 'db.sqlite3',
+    #     }
+    # }
+
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'girgujarat_db',
+            'USER': 'girgujarat_user',
+            'PASSWORD': 'replace_with_your_strong_postgres_password',
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
+
 
 # ==============================================================================
 # PASSWORD VALIDATION
