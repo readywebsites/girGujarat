@@ -1,0 +1,33 @@
+[Unit]
+Description=Gunicorn daemon for Travel First Holidays (girGujarat) Django Project
+After=network.target postgresql.service
+
+[Service]
+# Non-root deployment user with no sudo permissions
+User=girapp
+Group=www-data
+
+# Working directory on Ubuntu VPS
+WorkingDirectory=/srv/girgujarat/backend
+
+# Production environment variables file
+EnvironmentFile=/srv/girgujarat/backend/.env
+
+# Automatically manages /run/girgujarat directory for the Unix domain socket
+RuntimeDirectory=girgujarat
+RuntimeDirectoryMode=0755
+
+# Gunicorn start command with umask 007 (read/write access for girapp and www-data)
+ExecStart=/srv/girgujarat/.venv/bin/gunicorn \
+          --access-logfile - \
+          --error-logfile - \
+          --workers 3 \
+          --umask 007 \
+          --bind unix:/run/girgujarat/gunicorn.sock \
+          config.wsgi:application
+
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
