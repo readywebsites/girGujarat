@@ -196,25 +196,28 @@
           <div class="featured-right" id="featuredVehicleSection">
             <div class="vehicle-slider-container" id="featuredVehicleSlider" role="region" aria-roledescription="carousel" aria-label="Tour Travel Vehicle Options">
               
-              <!-- Floating Top Segmented Switcher Controls -->
-              <div class="vehicle-switcher-pill" role="tablist" aria-label="Select Vehicle Option">
-                <button type="button" class="vehicle-switch-btn active" data-vehicle="bus" role="tab" aria-selected="true" id="tabVehicleBus" aria-controls="slideVehicleBus">
-                  <span class="btn-icon">🚌</span>
-                  <span class="btn-text">Luxury AC Bus</span>
-                  <span class="btn-badge">Included</span>
-                </button>
-                <button type="button" class="vehicle-switch-btn" data-vehicle="car" role="tab" aria-selected="false" id="tabVehicleCar" aria-controls="slideVehicleCar">
-                  <span class="btn-icon">🚗</span>
-                  <span class="btn-text">Private Cab</span>
-                  <span class="btn-badge">Upgrade</span>
-                </button>
-              </div>
+              <!-- Top Controls Header Row: Structured flex alignment prevents overlapping -->
+              <div class="vehicle-slider-top-bar">
+                <!-- Price Burst Badge (Dynamic for active vehicle) -->
+                <div class="price-burst-pill vehicle-price-burst" id="vehiclePricePill">
+                  <span class="label" id="vehiclePriceLabel">Starting From</span>
+                  <span class="amount" id="vehiclePriceAmount">₹9,999/-</span>
+                  <span class="sub" id="vehiclePriceSub">Per Person (Group Tour)</span>
+                </div>
 
-              <!-- Price Burst Badge (Dynamic for active vehicle) -->
-              <div class="price-burst-pill vehicle-price-burst" id="vehiclePricePill">
-                <span class="label" id="vehiclePriceLabel">Starting From</span>
-                <span class="amount" id="vehiclePriceAmount">₹9,999/-</span>
-                <span class="sub" id="vehiclePriceSub">Per Person (Group Tour)</span>
+                <!-- Segmented Switcher Controls -->
+                <div class="vehicle-switcher-pill" role="tablist" aria-label="Select Vehicle Option">
+                  <button type="button" class="vehicle-switch-btn active" data-vehicle="bus" role="tab" aria-selected="true" id="tabVehicleBus" aria-controls="slideVehicleBus">
+                    <span class="btn-icon">🚌</span>
+                    <span class="btn-text">Luxury Bus</span>
+                    <span class="btn-badge">Included</span>
+                  </button>
+                  <button type="button" class="vehicle-switch-btn" data-vehicle="car" role="tab" aria-selected="false" id="tabVehicleCar" aria-controls="slideVehicleCar">
+                    <span class="btn-icon">🚗</span>
+                    <span class="btn-text">Private Cab</span>
+                    <span class="btn-badge">Upgrade</span>
+                  </button>
+                </div>
               </div>
 
               <!-- Slider Slides Viewport / Track -->
@@ -223,7 +226,7 @@
                 <div class="vehicle-slide active" id="slideVehicleBus" data-index="0" data-vehicle="bus" role="group" aria-roledescription="slide" aria-label="1 of 2: Luxury AC Coach">
                   <div class="vehicle-visual-stage">
                     <div class="vehicle-backdrop-glow"></div>
-                    <img src="assets/images/bus.png" alt="Luxury AC Tour Coach for Gujarat Tour" class="vehicle-slide-img" onerror="this.src='bus.png'">
+                    <img src="assets/images/bus.png" alt="Luxury AC Tour Coach for Gujarat Tour" class="vehicle-slide-img" onerror="this.src='assets/crops/bus.png'">
                   </div>
                   <div class="vehicle-info-overlay">
                     <div class="vehicle-title-row">
@@ -238,7 +241,7 @@
                 <div class="vehicle-slide" id="slideVehicleCar" data-index="1" data-vehicle="car" role="group" aria-roledescription="slide" aria-label="2 of 2: Private AC Cab">
                   <div class="vehicle-visual-stage">
                     <div class="vehicle-backdrop-glow"></div>
-                    <img src="assets/images/car.png" alt="Private AC Cab Toyota Innova for Gujarat Tour" class="vehicle-slide-img" onerror="this.src='car.png'">
+                    <img src="assets/images/car.png" alt="Private AC Cab Toyota Innova for Gujarat Tour" class="vehicle-slide-img" onerror="this.src='assets/crops/car.png'">
                   </div>
                   <div class="vehicle-info-overlay">
                     <div class="vehicle-title-row">
@@ -749,7 +752,7 @@
          11. LET'S PLAN HOLIDAY BANNER
          ========================================================================== -->
     <section class="plan-banner-section" id="sectionInquiry">
-      <img src="assets/crops/footer_banner.png" alt="Somnath Sunset Temple" class="plan-bg-img" onerror="this.src='assets/images/temple_sunset_retina.jpg'">
+      <img src="assets/crops/fbus.png" alt="Somnath Sunset Temple" class="plan-bg-img" onerror="this.src='assets/images/temple_sunset_retina.jpg'">
       <div class="container">
         <div class="plan-inquiry-container">
           <div class="plan-box-content">
