@@ -192,13 +192,78 @@
             </div>
           </div>
 
-          <!-- Featured Right Visual with Price Burst Badge -->
-          <div class="featured-right">
-            <img src="assets/crops/package_vehicles.png" alt="Innova Crysta and Luxury Tour Bus at Temple" onerror="this.src='assets/images/scenic_highway_bus.jpg'">
-            <div class="price-burst-pill">
-              <span class="label">Starting From</span>
-              <span class="amount">₹9,999/-</span>
-              <span class="sub">Per Person (Group Tour)</span>
+          <!-- Featured Right Visual with Vehicle Slider (Luxury Bus & Private Car) -->
+          <div class="featured-right" id="featuredVehicleSection">
+            <div class="vehicle-slider-container" id="featuredVehicleSlider" role="region" aria-roledescription="carousel" aria-label="Tour Travel Vehicle Options">
+              
+              <!-- Floating Top Segmented Switcher Controls -->
+              <div class="vehicle-switcher-pill" role="tablist" aria-label="Select Vehicle Option">
+                <button type="button" class="vehicle-switch-btn active" data-vehicle="bus" role="tab" aria-selected="true" id="tabVehicleBus" aria-controls="slideVehicleBus">
+                  <span class="btn-icon">🚌</span>
+                  <span class="btn-text">Luxury AC Bus</span>
+                  <span class="btn-badge">Included</span>
+                </button>
+                <button type="button" class="vehicle-switch-btn" data-vehicle="car" role="tab" aria-selected="false" id="tabVehicleCar" aria-controls="slideVehicleCar">
+                  <span class="btn-icon">🚗</span>
+                  <span class="btn-text">Private Cab</span>
+                  <span class="btn-badge">Upgrade</span>
+                </button>
+              </div>
+
+              <!-- Price Burst Badge (Dynamic for active vehicle) -->
+              <div class="price-burst-pill vehicle-price-burst" id="vehiclePricePill">
+                <span class="label" id="vehiclePriceLabel">Starting From</span>
+                <span class="amount" id="vehiclePriceAmount">₹9,999/-</span>
+                <span class="sub" id="vehiclePriceSub">Per Person (Group Tour)</span>
+              </div>
+
+              <!-- Slider Slides Viewport / Track -->
+              <div class="vehicle-slides-viewport">
+                <!-- Slide 1: Luxury Bus (Default Active) -->
+                <div class="vehicle-slide active" id="slideVehicleBus" data-index="0" data-vehicle="bus" role="group" aria-roledescription="slide" aria-label="1 of 2: Luxury AC Coach">
+                  <div class="vehicle-visual-stage">
+                    <div class="vehicle-backdrop-glow"></div>
+                    <img src="assets/images/bus.png" alt="Luxury AC Tour Coach for Gujarat Tour" class="vehicle-slide-img" onerror="this.src='bus.png'">
+                  </div>
+                  <div class="vehicle-info-overlay">
+                    <div class="vehicle-title-row">
+                      <span class="vehicle-type-tag">AC Luxury Tour Coach</span>
+                      <span class="vehicle-specs-tag">2+2 Pushback Seats</span>
+                    </div>
+                    <p class="vehicle-desc-text">Included in signature tour • Air-conditioned • Panoramic scenic windows</p>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Private Car -->
+                <div class="vehicle-slide" id="slideVehicleCar" data-index="1" data-vehicle="car" role="group" aria-roledescription="slide" aria-label="2 of 2: Private AC Cab">
+                  <div class="vehicle-visual-stage">
+                    <div class="vehicle-backdrop-glow"></div>
+                    <img src="assets/images/car.png" alt="Private AC Cab Toyota Innova for Gujarat Tour" class="vehicle-slide-img" onerror="this.src='car.png'">
+                  </div>
+                  <div class="vehicle-info-overlay">
+                    <div class="vehicle-title-row">
+                      <span class="vehicle-type-tag vehicle-type-car">Private Cab Upgrade</span>
+                      <span class="vehicle-specs-tag">Innova / Ertiga / Sedan</span>
+                    </div>
+                    <p class="vehicle-desc-text">Dedicated personal vehicle • Flexible timing • Doorstep hotel pickup</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Controls: Prev / Next Glass Arrows -->
+              <button type="button" class="vehicle-slider-arrow prev" id="btnVehiclePrev" aria-label="Show Previous Vehicle Option">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button type="button" class="vehicle-slider-arrow next" id="btnVehicleNext" aria-label="Show Next Vehicle Option">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+
+              <!-- Pagination Indicator Dots -->
+              <div class="vehicle-slider-dots" role="tablist" aria-label="Slide Indicator Dots">
+                <button type="button" class="v-dot active" data-index="0" aria-label="Switch to Luxury AC Bus" aria-current="true"></button>
+                <button type="button" class="v-dot" data-index="1" aria-label="Switch to Private AC Cab" aria-current="false"></button>
+              </div>
+
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookingCalculator();
   initModals();
   initCarousel();
+  initVehicleSlider();
   initModernWebFallbacks();
   initSpecsDrawer();
 });
@@ -395,6 +396,203 @@ function openLightbox(src, alt) {
   if (imgEl) imgEl.src = src;
   if (captionEl) captionEl.textContent = alt || 'Gujarat Travel Memories';
   if (modal) modal.classList.add('is-open');
+}
+
+/* ==========================================================================
+   5b. VEHICLE SHOWCASE SLIDER (Luxury Bus vs Private Cab)
+   ========================================================================== */
+function initVehicleSlider() {
+  const container = document.getElementById('featuredVehicleSlider');
+  if (!container) return;
+
+  const slides = container.querySelectorAll('.vehicle-slide');
+  const tabs = container.querySelectorAll('.vehicle-switch-btn');
+  const dots = container.querySelectorAll('.v-dot');
+  const btnPrev = document.getElementById('btnVehiclePrev');
+  const btnNext = document.getElementById('btnVehicleNext');
+
+  // Price Badge Elements
+  const pricePill = document.getElementById('vehiclePricePill');
+  const priceLabel = document.getElementById('vehiclePriceLabel');
+  const priceAmount = document.getElementById('vehiclePriceAmount');
+  const priceSub = document.getElementById('vehiclePriceSub');
+
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  let autoTimer = null;
+  let isInteracted = false;
+
+  const vehicleData = [
+    {
+      id: 'bus',
+      label: 'Starting From',
+      amount: '₹9,999/-',
+      sub: 'Per Person (Group Tour)',
+      formValue: 'bus'
+    },
+    {
+      id: 'car',
+      label: 'Private Tour Option',
+      amount: 'Custom Quote',
+      sub: 'Per Person (Private Cab)',
+      formValue: 'private'
+    }
+  ];
+
+  function showSlide(index, direction = 'next') {
+    if (index === currentIndex && slides[index].classList.contains('active')) return;
+    
+    // Normalize index
+    const prevIndex = currentIndex;
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active', 'exit-left', 'exit-right');
+      if (i === prevIndex) {
+        slide.classList.add(direction === 'next' ? 'exit-left' : 'exit-right');
+      }
+    });
+
+    // Activate new slide
+    const activeSlide = slides[currentIndex];
+    activeSlide.classList.add('active');
+
+    // Update tabs
+    tabs.forEach((tab, i) => {
+      const isActive = i === currentIndex;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      const isActive = i === currentIndex;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+
+    // Animate and update price badge
+    if (pricePill && vehicleData[currentIndex]) {
+      const data = vehicleData[currentIndex];
+      pricePill.style.transform = 'scale(0.92)';
+      pricePill.style.opacity = '0.7';
+
+      setTimeout(() => {
+        if (priceLabel) priceLabel.textContent = data.label;
+        if (priceAmount) priceAmount.textContent = data.amount;
+        if (priceSub) priceSub.textContent = data.sub;
+        pricePill.style.transform = 'scale(1)';
+        pricePill.style.opacity = '1';
+      }, 140);
+    }
+
+    // Synchronize vehicle choice with booking drawer form
+    const targetFormValue = vehicleData[currentIndex].formValue;
+    const formRadio = document.querySelector(`input[name="vehicleChoice"][value="${targetFormValue}"]`);
+    if (formRadio && !formRadio.checked) {
+      formRadio.checked = true;
+      formRadio.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+
+  // Event Listeners for Tabs
+  tabs.forEach((tab, idx) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      isInteracted = true;
+      stopAutoPlay();
+      showSlide(idx, idx > currentIndex ? 'next' : 'prev');
+    });
+  });
+
+  // Event Listeners for Arrows
+  if (btnPrev) {
+    btnPrev.addEventListener('click', (e) => {
+      e.preventDefault();
+      isInteracted = true;
+      stopAutoPlay();
+      showSlide(currentIndex - 1, 'prev');
+    });
+  }
+
+  if (btnNext) {
+    btnNext.addEventListener('click', (e) => {
+      e.preventDefault();
+      isInteracted = true;
+      stopAutoPlay();
+      showSlide(currentIndex + 1, 'next');
+    });
+  }
+
+  // Event Listeners for Dots
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      isInteracted = true;
+      stopAutoPlay();
+      showSlide(idx, idx > currentIndex ? 'next' : 'prev');
+    });
+  });
+
+  // Touch Swipe Support for mobile devices
+  let touchStartX = 0;
+  let touchEndX = 0;
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  container.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      isInteracted = true;
+      stopAutoPlay();
+      if (diff < 0) {
+        showSlide(currentIndex + 1, 'next'); // Swipe left -> next
+      } else {
+        showSlide(currentIndex - 1, 'prev'); // Swipe right -> prev
+      }
+    }
+  }, { passive: true });
+
+  // Keyboard navigation when slider is focused
+  container.setAttribute('tabindex', '0');
+  container.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      isInteracted = true;
+      stopAutoPlay();
+      showSlide(currentIndex - 1, 'prev');
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      isInteracted = true;
+      stopAutoPlay();
+      showSlide(currentIndex + 1, 'next');
+    }
+  });
+
+  // Subtle auto-advance every 6.5s until user manually interacts
+  function startAutoPlay() {
+    if (autoTimer || isInteracted) return;
+    autoTimer = setInterval(() => {
+      showSlide(currentIndex + 1, 'next');
+    }, 6500);
+  }
+
+  function stopAutoPlay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  container.addEventListener('mouseenter', stopAutoPlay);
+  container.addEventListener('mouseleave', () => {
+    if (!isInteracted) startAutoPlay();
+  });
+
+  startAutoPlay();
 }
 
 /* ==========================================================================
