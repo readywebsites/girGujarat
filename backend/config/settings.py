@@ -46,7 +46,7 @@ _env_allowed_hosts = os.environ.get('ALLOWED_HOSTS', '')
 if _env_allowed_hosts:
     ALLOWED_HOSTS = [h.strip() for h in _env_allowed_hosts.split(',') if h.strip()]
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '[::1]']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '[::1]', 'travelfirstholidays.biz499.com',]
 
 # ==============================================================================
 # APPLICATION DEFINITION
